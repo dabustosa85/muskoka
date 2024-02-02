@@ -1,7 +1,3 @@
-/* Custom CSS Goes Here */
-
-
-
 p {
   margin-top: 0;
   margin-bottom: 0px;
@@ -108,7 +104,16 @@ footer .fa-solid {
   height: 50vh;
   min-height: 200px;
   background-color: #f0e7d4;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
+/*EFECTOS ICONOS Y LOGO*/
+
+.efecto1:hover {
+  transform: rotate(40deg); 
+  transition: transform 0.4s ease-in-out; 
+}
+
+.efecto2:hover {
+  transform: scale(1.2);  
+  transition: transform 0.3s ease-in-out; 
+}
