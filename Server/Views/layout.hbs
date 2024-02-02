@@ -14,10 +14,35 @@
     <link rel="shortcut icon" href="/Assets/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+  <div class="colorprimario py-2 ">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-sm text-center text-white">
+          <p class="mb-0"> <i class="fa-solid fa-location-dot fa-lg me-2"></i>
+          <a href="tel:7056877387" class="text-white"> 705-687-PETS (7387)</a>
+          </p>
+        </div>
+        <div class="col-12 col-sm text-center text-white">
+          <p class="mb-0"> <i class="fa-solid fa-envelope fa-sm me-2"></i>
+          <a href="mailto:info@muskokaroadvet.com" class="text-white">info@muskokaroadvet.com</a>
+          </p>
+        </div>
+        <div class="col-12 col-sm text-center text-white">
+          <p class="mb-0"> <i class="fa-solid fa-clock fa-sm me-2"></i>Mon - Fri 8:00am - 5:00pm</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary ">
   <div class="container">
     <a class="navbar-brand" href="/home">
-            <img src="/Assets/images/logo.webp" alt="MRVH" height="100px">
+      <!-- Logo para dispositivos grandes y extra grandes, oculto en md y sm -->
+      <img src="/Assets/images/logo.webp" alt="MRVH" class="d-none d-lg-block d-xl-block" height="140px">
+      <!-- Logo para dispositivos medianos, oculto en lg, xl y sm -->
+      <img src="/Assets/images/logo.webp" alt="MRVH" class="d-none d-md-block d-lg-none" height="100px">
+      <!-- Logo para dispositivos pequeños, oculto en md, lg y xl -->
+      <img src="/Assets/images/logo.webp" alt="MRVH" class="d-block d-sm-none d-md-none d-lg-none" height="80px">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

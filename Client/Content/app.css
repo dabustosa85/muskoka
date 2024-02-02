@@ -1,12 +1,19 @@
 /* Custom CSS Goes Here */
 
-body {
-    padding-top: 160px;
-  }
 
-  /* Botones outline*/
-  .btn-outline-primary
-  {
+
+p {
+  margin-top: 0;
+  margin-bottom: 0px;
+}
+
+/* Container sin borde - gutter */
+.container-fluid {
+  --bs-gutter-x: none !important;
+}
+
+/* Botones outline*/
+.btn-outline-primary {
     --bs-btn-color: #58695d;
     --bs-btn-border-color: #58695d;
     --bs-btn-hover-color: #fff;
@@ -21,10 +28,9 @@ body {
     --bs-btn-disabled-bg: transparent;
     --bs-btn-disabled-border-color: #58695d;
     --bs-gradient: none;
-  }
+}
 
-  .btn-outline-secondary
-  {
+.btn-outline-secondary {
     --bs-btn-color: #cdb17d;
     --bs-btn-border-color: #cdb17d;
     --bs-btn-hover-color: #fff;
@@ -39,51 +45,70 @@ body {
     --bs-btn-disabled-bg: transparent;
     --bs-btn-disabled-border-color: #cdb17d;
     --bs-gradient: none;
-  }
+}
+
 /*Quitar underline*/
-  footer a, .footer a {
-    text-decoration: none;
-    font-size: 14px;
-  }
+footer a, .footer a {
+  text-decoration: none;
+  font-size: 14px;
+}
 
-  footer h5 {
-    font-size: 16px;
-  }
+footer h5 {
+  font-size: 16px;
+}
 
-  footer p {
-    font-size: 14px;
-  }
+footer p {
+  font-size: 14px;
+}
+
 /* FUENTES */
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
+body {
+  font-family: 'Roboto', sans-serif;
+}
 
-  h1, h2, h3, h4, h5 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-  }
+h2, h3, h4, h5 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
   
-  p, ul, li {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-  }
+p, ul, li {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
 
-  /*COLOR PRIMARIO*/
-
-  .colorprimario {
+.subtitulo {
+  font-size: 24px;
+}
+  
+/*COLORES PRIMARIOS*/
+.colorprimario {
     background-color: #656f66;
-  }
+}
 
-  .colorsecundario {
+.colorsecundario {
     background-color: #c6a56a;
-  }
+}
 
 /*ICONOS FOOTER*/
-.fa-solid
-{
+footer .fa-solid {
   font-weight: 900;
   background-color: #727c75;
   padding: 20px;
   border-radius: 20px;
   color: #cdb17d;
 }
+
+/*HEAD*/
+.superheader {
+  height: 50vh;
+  min-height: 200px;
+  background-color: #f0e7d4;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
