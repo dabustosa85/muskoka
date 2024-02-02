@@ -4,6 +4,7 @@ body {
     padding-top: 160px;
   }
 
+  /* Botones outline*/
   .btn-outline-primary
   {
     --bs-btn-color: #58695d;
@@ -39,3 +40,50 @@ body {
     --bs-btn-disabled-border-color: #cdb17d;
     --bs-gradient: none;
   }
+/*Quitar underline*/
+  footer a, .footer a {
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  footer h5 {
+    font-size: 16px;
+  }
+
+  footer p {
+    font-size: 14px;
+  }
+/* FUENTES */
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+  }
+  
+  p, ul, li {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+  }
+
+  /*COLOR PRIMARIO*/
+
+  .colorprimario {
+    background-color: #656f66;
+  }
+
+  .colorsecundario {
+    background-color: #c6a56a;
+  }
+
+/*ICONOS FOOTER*/
+.fa-solid
+{
+  font-weight: 900;
+  background-color: #727c75;
+  padding: 20px;
+  border-radius: 20px;
+  color: #cdb17d;
+}
