@@ -117,3 +117,9 @@ footer .fa-solid {
   transform: scale(1.2);  
   transition: transform 0.3s ease-in-out; 
 }
+
+/*BOTONES ESPECIALES*/
+.btn-custom-gray {
+  background-color: #e0e0e0; 
+  border-color: #e0e0e0; 
+}
