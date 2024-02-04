@@ -138,6 +138,8 @@ footer .fa-solid {
   color: #676f67;
 }
 
+
+
 /*CARDS*/
 .alto-minimo{
   min-height: 200px;
@@ -145,4 +147,26 @@ footer .fa-solid {
 
 .card {
   border-radius: 20px;
+}
+.supercaja {
+  background-color: white;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.otrotitulo {
+  font-weight: 400;
+  font-size: 18px;
+}
+/*ICONOS*/
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 200,
+  'GRAD' -25,
+  'opsz' 24
+}
+
+.tamanoicono {
+  font-size: 50px;
 }
