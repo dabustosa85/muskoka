@@ -23,10 +23,16 @@ function DisplayRequestAppointment(req, res, next)
   res.render('request-appointment', {title: 'Request Appointment', page: 'request-appointment'});
 }
 
+function DisplaySurvey(req, res, next)
+{
+  res.render('survey', {title: 'Survey', page: 'survey'});
+}
+
 module.exports = {
  DisplayHome: DisplayHome,
  DisplayBecomeAClient: DisplayBecomeAClient,
- DisplayRequestAppointment: DisplayRequestAppointment
+ DisplayRequestAppointment: DisplayRequestAppointment,
+ DisplaySurvey: DisplaySurvey
 }
 
   
