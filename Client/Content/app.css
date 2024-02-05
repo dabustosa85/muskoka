@@ -122,6 +122,16 @@ footer .fa-solid {
   transition: transform 0.3s ease-in-out; 
 }
 
+.efecto3 {
+  transition: transform 750ms;
+    will-change: transform;
+    background: slateblue;
+}
+
+.efecto3:hover, 
+.efecto3:focus {
+  transform: translateY(10px);
+}
 /*BOTONES ESPECIALES*/
 .btn-custom-color1 {
   background-color: #999a91; 
