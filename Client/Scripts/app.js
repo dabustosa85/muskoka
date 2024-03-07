@@ -1,3 +1,5 @@
+// Custom JavaScript
+
 // IIFE -- Immediately Invoked Function Expression Example
 (function () {
   function Start() {
@@ -134,3 +136,4 @@
   }
 
   window.addEventListener("load", Start);
+})();
