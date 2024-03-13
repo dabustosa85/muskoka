@@ -17,54 +17,101 @@
     </div>
   </header>
   <!-- Formulario comienza aquí -->
-  <div class="container mt-4">
-    <div class="row justify-content-center py-5">
-      <div class="col-md-8 bg-white rounded shadow p-4">
-        <form>
-          <div class="mb-3">
-            <label for="survey-pet-name" class="form-label">Pet's Name:</label>
-            <input type="text" id="survey-pet-name" class="form-control" />
-          </div>
-          <div class="mb-3">
-            <label for="survey-pet-type" class="form-label">Pet Type:</label>
-            <select id="survey-pet-type" class="form-select">
-              <option value="">Select a type</option>
-              <option value="dog">Dog</option>
-              <option value="cat">Cat</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="survey-breed-size" class="form-label">Breed Size:</label>
-            <select id="survey-breed-size" class="form-select">
-              <option value="">Select a size</option>
-              <option value="small">Small</option>
-              <option value="medium">Medium</option>
-              <option value="large">Large</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="survey-age-range" class="form-label">Age Range:</label>
-            <select id="survey-age-range" class="form-select">
-              <option value="">Select an age range</option>
-              <option value="kitten-puppy">Kitten/Puppy</option>
-              <option value="adult">Adult</option>
-              <option value="senior">Senior</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="survey-pet-weight" class="form-label">Current Weight
-              (kg):</label>
-            <input type="number" id="survey-pet-weight" class="form-control" />
-          </div>
-          <button
-            id="survey-submit-btn"
-            class="btn btn-primary"
-            type="button"
-            disabled
-          >Submit</button>
-        </form>
-        <div id="result" class="mt-4"></div>
-      </div>
-    </div>
-  </div>
+  survey.hbs
+
+<div class="container-fluid">
+  <header class="superheader">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12 text-center">
+          <img
+            src="/Assets/images/icono-title.png"
+            class="efecto1"
+            alt="icono flor"
+            width="40"
+          />
+          <h1>{{title}}</h1>
+          <p class="lead">Concerned about your furry friend's health?</p>
+          <p class="lead">Our quick pet symptom checker is here to help!</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container mt-4">
+    <div class="row justify-content-center py-5">
+      <div class="col-md-8 bg-white rounded shadow p-4">
+        <form>
+          <div class="mb-3">
+            <label for="survey-pet-name" class="form-label">Pet's Name:</label>
+            <input type="text" id="survey-pet-name" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Pet Type:</label>
+            <div id="pet-type-images">
+              <img
+                src="/Assets/images/dog.png"
+                alt="Dog"
+                class="pet-type-image"
+                data-pet-type="dog"
+                width="100"
+                style="cursor:pointer; margin-right: 10px;"
+              />
+              <img
+                src="/Assets/images/cat.png"
+                alt="Cat"
+                class="pet-type-image"
+                data-pet-type="cat"
+                width="100"
+                style="cursor:pointer;"
+              />
+            </div>
+            <input type="hidden" id="survey-pet-type" value="" />
+          </div>
+
+          <div class="mb-3">
+            <label for="survey-breed-size" class="form-label">Breed Size:</label>
+            <select id="survey-breed-size" class="form-select">
+              <option value="">Select a size</option>
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="large">Large</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="survey-age-range" class="form-label">Age Range:</label>
+            <select id="survey-age-range" class="form-select">
+              <option value="">Select an age range</option>
+              <option value="kitten-puppy">Kitten/Puppy</option>
+              <option value="adult">Adult</option>
+              <option value="senior">Senior</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="survey-activity-level" class="form-label">Activity
+              Level:</label>
+            <select id="survey-activity-level" class="form-select">
+              <option value="">Select activity level</option>
+              <option value="none">None</option>
+              <option value="low">Low</option>
+              <option value="moderate">Moderate</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="survey-pet-weight" class="form-label">Current Weight
+              (kg):</label>
+            <input type="number" id="survey-pet-weight" class="form-control" />
+          </div>
+          <button
+            id="survey-submit-btn"
+            class="btn btn-primary"
+            type="button"
+            disabled
+          >Submit</button>
+        </form>
+        <div id="result" class="mt-4"></div>
+      </div>
+    </div>
+  </div>
 </div>
