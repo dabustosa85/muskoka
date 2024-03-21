@@ -1,100 +1,70 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
-
 const app = require('./Server/Config/app');
 const debug = require('debug');
 debug('test-package:server');
 const http = require('http');
-
-
-/**
- * Get port from environment and store in Express.
- */
+const mongoose = require('mongoose');
 
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
-
 const server = http.createServer(app);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
+const mongoUrl = "mongodb+srv://muskokaUser:gPaJuBEgVlwZguoE@comp2106.hc9ht8r.mongodb.net/?retryWrites=true&w=majority&appName=comp2106"
+const clientOptions = {serverApi: {version: '1', strict: true, deprecationErrors: true}};
 
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-/**
- * Normalize a port into a number, string, or false.
- */
+function normalizePort(val) {
+    const port = parseInt(val, 10);
 
-function normalizePort(val) 
-{
-  const port = parseInt(val, 10);
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
 
-  if (isNaN(port)) {
-    // named pipe
-    return val;
-  }
+    if (port >= 0) {
+        // port number
+        return port;
+    }
 
-  if (port >= 0) {
-    // port number
-    return port;
-  }
-
-  return false;
+    return false;
 }
 
-/**
- * Event listener for HTTP server "error" event.
- */
+function onError(error) {
+    if (error.syscall !== 'listen') {
+        throw error;
+    }
 
-function onError(error) 
-{
-  if (error.syscall !== 'listen') 
-  {
-    throw error;
-  }
+    var bind = typeof port === 'string'
+        ? 'Pipe ' + port
+        : 'Port ' + port;
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
-
-  // handle specific listen errors with friendly messages
-  switch (error.code) 
-  {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
+    switch (error.code) {
+        case 'EACCES':
+            console.error(bind + ' requires elevated privileges');
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            console.error(bind + ' is already in use');
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
 }
 
-/**
- * Event listener for HTTP server "listening" event.
- */
-
-function onListening() 
-{
-  let addr = server.address();
-  let bind = 'pipe ' + addr;
-  debug('Listening on ' + bind);
+function onListening() {
+    let addr = server.address();
+    let bind = 'pipe ' + addr;
+    debug('Listening on ' + bind);
 }
 
-
-/**
- * Todo esto que el sitio sea visible
- */
+mongoose.connect(mongoUrl, clientOptions).then(() => {
+    console.log('MongoDB connected');
+}).catch(err => {
+    console.error('MongoDB connection error:', err);
+});

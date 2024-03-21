@@ -4,6 +4,8 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const Handlebars = require('handlebars');
+const moment = require('moment');
 
 // Routing modules
 const indexRouter = require('../Routes');
@@ -41,5 +43,22 @@ app.use(function(err, req, res, next)
   res.status(err.status || 500);
   res.render('error', {title: `Error: ${err.status}`, page: 'error'});
 });
+
+function printRoutes() {
+    app._router.stack.forEach(printRoutesForLayer);
+}
+
+function printRoutesForLayer(layer) {
+    if (layer.route) {
+        const routePath = layer.route?.path;
+        const routeMethods = layer.route?.methods;
+        const methods = Object.keys(routeMethods).join(', ').toUpperCase();
+        console.log(`${methods} ${routePath}`);
+    } else if (layer.name === 'router' && layer.handle.stack) {
+        layer.handle.stack.forEach(printRoutesForLayer);
+    }
+}
+
+printRoutes();
 
 module.exports = app;

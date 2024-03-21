@@ -1,0 +1,13 @@
+<div class="container my-4">
+  <h2>User Details</h2>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{user.firstName}} {{user.lastName}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{user.email}}</h6>
+      <p class="card-text">Administrator: {{#if user.isAdmin}}Yes{{else}}No{{/if}}</p>
+      <p class="card-text">Pet Type: {{user.petType}}</p>
+      <p class="card-text">Pet Name: {{user.petName}}</p>
+      <a href="/backend/users" class="btn btn-secondary">Back to Users</a>
+    </div>
+  </div>
+</div>

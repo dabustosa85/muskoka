@@ -1,0 +1,32 @@
+<div class="container mt-4">
+    <h2>All Appointments</h2>
+    <a href="/backend/appointments/create" class="btn btn-success mb-3">Create New Appointment</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>User</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each appointments}}
+            <tr>
+                <td>{{this.title}}</td>
+                <td>{{this.date}}</td>
+                <td>{{this.time}}</td>
+                <td>{{this.user.firstName}} {{this.user.lastName}}</td>
+                <td>
+                    <a href="/backend/appointments/{{this._id}}" class="btn btn-info">Details</a>
+                    <form action="/backend/appointments/delete/{{this._id}}" method="POST" onsubmit="return confirm('Are you sure?');"
+                          style="display: inline;">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>

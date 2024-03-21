@@ -1,0 +1,44 @@
+<div class="container my-4">
+  <h2>Create Appointment</h2>
+  <form action="/backend/appointments" method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" id="description" name="description" required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="date" class="form-label">Date</label>
+      <input type="date" class="form-control" id="date" name="date" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="time" class="form-label">Time</label>
+      <select name="time" id="time" class="form-control" required>
+        {{#each timeSlots}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="location" class="form-label">Location</label>
+      <input type="text" class="form-control" id="location" name="location" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="user" class="form-label">User</label>
+      <select name="user" id="user" class="form-control" required>
+        {{#each users}}
+        <option value="{{this._id}}">{{this.firstName}} {{this.lastName}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+</div>
