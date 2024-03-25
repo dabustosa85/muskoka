@@ -6,12 +6,22 @@ debug('test-package:server');
 const http = require('http');
 const mongoose = require('mongoose');
 
+require('dotenv').config();
+
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
+
 const server = http.createServer(app);
 
-const mongoUrl = "mongodb+srv://muskokaUser:gPaJuBEgVlwZguoE@comp2106.hc9ht8r.mongodb.net/?retryWrites=true&w=majority&appName=comp2106"
+const username = process.env.DB_USERNAME;
+const password = process.env.DB_PASSWORD;
+const host = process.env.DB_HOST;
+const dbName = process.env.DB_NAME;
+const options = process.env.DB_OPTIONS;
+
+const connectionString = `mongodb+srv://${username}:${password}@${host}/${dbName}?${options}`;
+
 const clientOptions = {serverApi: {version: '1', strict: true, deprecationErrors: true}};
 
 server.listen(port);
@@ -63,7 +73,7 @@ function onListening() {
     debug('Listening on ' + bind);
 }
 
-mongoose.connect(mongoUrl, clientOptions).then(() => {
+mongoose.connect(connectionString, clientOptions).then(() => {
     console.log('MongoDB connected');
 }).catch(err => {
     console.error('MongoDB connection error:', err);

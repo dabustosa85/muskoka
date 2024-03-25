@@ -1,29 +1,31 @@
 <div class="container my-4">
-  <h2 class="mb-4">Users</h2>
-  <a href="/backend/users/create" class="btn btn-success mb-3">Create New User</a>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each users}}
-      <tr>
-        <td>{{this.firstName}} {{this.lastName}}</td>
-        <td>{{this.email}}</td>
-        <td>
-          <a href="/backend/users/{{this._id}}" class="btn btn-info">Details</a>
-          <a href="/backend/users/edit/{{this._id}}" class="btn btn-primary">Edit</a>
-          <form action="/backend/users/delete/{{this._id}}" method="POST" style="display:inline;">
-            <button type="submit" class="btn btn-danger">Delete</button>
-          </form>
-        </td>
-      </tr>
-      {{/each}}
-    </tbody>
-  </table>
-  <a href="/backend" class="btn btn-secondary mt-3">Back to Dashboard</a>
+    <h2 class="mb-4">Users</h2>
+    <a href="/backend/users/create" class="btn btn-success mb-3">Create New User</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each users}}
+            <tr>
+                <td>{{this.firstName}} {{this.lastName}}</td>
+                <td>{{this.email}}</td>
+                <td>
+                    <a href="/backend/users/{{this._id}}" class="btn btn-info">Details</a>
+                    <a href="/backend/users/edit/{{this._id}}" class="btn btn-primary">Edit</a>
+                    <form action="/backend/users/delete/{{this._id}}" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    <div class="d-inline">
+        <a href="/backend" class="btn btn-secondary mt-3">Back to Dashboard</a>
+    </div>
 </div>

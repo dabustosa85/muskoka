@@ -1,35 +1,38 @@
 <div class="container my-4">
-  <h2>Create New User</h2>
-  <form action="/backend/users" method="POST">
-    <div class="mb-3">
-      <label for="firstName" class="form-label">First Name</label>
-      <input type="text" class="form-control" id="firstName" name="firstName" required>
-    </div>
-    <div class="mb-3">
-      <label for="lastName" class="form-label">Last Name</label>
-      <input type="text" class="form-control" id="lastName" name="lastName" required>
-    </div>
-    <div class="mb-3">
-      <label for="email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="email" name="email" required>
-    </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password" name="password" required>
-    </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="isAdmin" name="isAdmin">
-      <label class="form-check-label" for="isAdmin">Administrator</label>
-    </div>
-    <div class="mb-3">
-      <label for="petType" class="form-label">Pet Type</label>
-      <input type="text" class="form-control" id="petType" name="petType">
-    </div>
-    <div class="mb-3">
-      <label for="petName" class="form-label">Pet Name</label>
-      <input type="text" class="form-control" id="petName" name="petName">
-    </div>
-    <button type="submit" class="btn btn-primary">Create</button>
+    <h2>Create New User</h2>
+    <form action="/backend/users" method="POST">
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" required>
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="isAdmin" name="isAdmin">
+            <label class="form-check-label" for="isAdmin">Administrator</label>
+        </div>
+        <div class="mb-3">
+            <label for="petType" class="form-label">Pet Type</label>
+            <select class="form-control" id="petType" name="petType">
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="petName" class="form-label">Pet Name</label>
+            <input type="text" class="form-control" id="petName" name="petName">
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
     <a href="/backend/users" class="btn btn-secondary mt-3">Back to Users</a>
-  </form>
 </div>

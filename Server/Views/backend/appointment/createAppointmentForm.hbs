@@ -1,21 +1,25 @@
 <div class="container my-4">
   <h2>Create Appointment</h2>
   <form action="/backend/appointments" method="POST">
+    <!-- Campo de título -->
     <div class="mb-3">
-      <label for="title" class="form-label">Title</label>
+      <label for="title" class="form-label">Reason</label>
       <input type="text" class="form-control" id="title" name="title" required>
     </div>
 
+    <!-- Campo de descripción -->
     <div class="mb-3">
-      <label for="description" class="form-label">Description</label>
+      <label for="description" class="form-label">Reason Details</label>
       <textarea class="form-control" id="description" name="description" required></textarea>
     </div>
 
+    <!-- Selector de fecha -->
     <div class="mb-3">
       <label for="date" class="form-label">Date</label>
       <input type="date" class="form-control" id="date" name="date" required>
     </div>
 
+    <!-- Selector de hora -->
     <div class="mb-3">
       <label for="time" class="form-label">Time</label>
       <select name="time" id="time" class="form-control" required>
@@ -25,11 +29,13 @@
       </select>
     </div>
 
+    <!-- Campo de ubicación -->
     <div class="mb-3">
-      <label for="location" class="form-label">Location</label>
+      <label for="location" class="form-label">Speciality</label>
       <input type="text" class="form-control" id="location" name="location" required>
     </div>
 
+    <!-- Dropdown de usuarios -->
     <div class="mb-3">
       <label for="user" class="form-label">User</label>
       <select name="user" id="user" class="form-control" required>
@@ -39,6 +45,7 @@
       </select>
     </div>
 
+    <!-- Botón de envío -->
     <button type="submit" class="btn btn-primary">Create</button>
   </form>
 </div>

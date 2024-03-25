@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
-
+const { ensureLoggedIn, ensureAdmin } = require('../Middlewares/auth');
 const AppointmentController = require('../Controllers/appointment');
+
+router.use(ensureLoggedIn);
+router.use(ensureAdmin);
 
 router.get('/appointments/create', AppointmentController.renderCreateForm);
 

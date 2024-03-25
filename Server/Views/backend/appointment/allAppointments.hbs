@@ -1,12 +1,20 @@
-<div class="container mt-4">
+<div class="container my-4">
     <h2>All Appointments</h2>
+    {{#if hasUsers}}
     <a href="/backend/appointments/create" class="btn btn-success mb-3">Create New Appointment</a>
+    {{else}}
+    <a href="#" class="btn btn-success disabled" aria-disabled="true">Create New Appointment</a>
+    <div>
+        <small class="d-inline text-danger mb-3">You must create a user not admin before you can create an appointment.</small>
+    </div>
+    {{/if}}
     <table class="table">
         <thead>
         <tr>
             <th>Title</th>
             <th>Date</th>
             <th>Time</th>
+            <th>Speciality</th>
             <th>User</th>
             <th>Actions</th>
         </tr>
@@ -15,9 +23,10 @@
         {{#each appointments}}
             <tr>
                 <td>{{this.title}}</td>
-                <td>{{this.date}}</td>
+                <td>{{formatDate this.date}}</td>
                 <td>{{this.time}}</td>
-                <td>{{this.user.firstName}} {{this.user.lastName}}</td>
+                <td>{{this.location}}</td>
+                <td><a href="/backend/users/{{this.user._id}}">{{this.user.firstName}} {{this.user.lastName}}</a></td>
                 <td>
                     <a href="/backend/appointments/{{this._id}}" class="btn btn-info">Details</a>
                     <form action="/backend/appointments/delete/{{this._id}}" method="POST" onsubmit="return confirm('Are you sure?');"
@@ -29,4 +38,7 @@
         {{/each}}
         </tbody>
     </table>
+     <div class="d-inline">
+        <a href="/backend" class="btn btn-secondary mt-3">Back to Dashboard</a>
+    </div>
 </div>

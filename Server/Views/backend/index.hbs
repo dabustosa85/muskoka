@@ -1,16 +1,9 @@
-{{#if user}}
-  <div class="container my-4">
+<div class="container my-4">
     <h1>Welcome, {{user.firstName}} {{user.lastName}}!</h1>
     <p>This is your backend management dashboard.</p>
-  </div>
-{{else}}
-  <div class="container mt-4">
-    <h1>Welcome to the Backend Dashboard!</h1>
-    <p>Please log in to manage users and appointments.</p>
-  </div>
-{{/if}}
+</div>
 
 <div class="container my-3">
-  <a href="/backend/users" class="btn btn-primary">Users</a>
-  <a href="/backend/appointments" class="btn btn-secondary">Appointments</a>
+    <a href="/backend/users" class="btn btn-primary">Users</a>
+    <a href="/backend/appointments" class="btn btn-secondary">Appointments</a>
 </div>

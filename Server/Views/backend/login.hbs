@@ -1,0 +1,22 @@
+<div class="container mt-4">
+    <h1>Welcome to the Backend Dashboard!</h1>
+    <p>Please log in to manage users and appointments.</p>
+
+    {{#if error}}
+    <div class="alert alert-danger">
+        {{error}}
+    </div>
+    {{/if}}
+
+    <form action="/backend/login" method="POST" class="my-4">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Log In</button>
+    </form>
+</div>

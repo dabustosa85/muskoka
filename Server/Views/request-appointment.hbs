@@ -1,14 +1,89 @@
 <div class="container-fluid">
     <header class="superheader">
-      <div class="container h-100">
-        <div class="row h-100 align-items-center">
-          <div class="col-12 text-center">
-            <img src="/Assets/images/icono-title.png" class="efecto1" alt="Icono flor" width="40">
-            <h1>{{title}}</h1>
-            <p class="lead">Thank you for choosing Muskoka Road Veterinary Hospital for your pet’s healthcare needs. </p>
-            <p class="lead">Scheduling an appointment is easy and convenient.</p>
-          </div>
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 text-center">
+                    <img src="/Assets/images/icono-title.png" class="efecto1" alt="Icono flor" width="40">
+                    <h1>{{title}}</h1>
+                    <p class="lead">Thank you for choosing Muskoka Road Veterinary Hospital for your pet’s healthcare needs. </p>
+                    <p class="lead">Scheduling an appointment is easy and convenient.</p>
+                </div>
+            </div>
         </div>
-      </div>
-  </header>
+    </header>
+</div>
+
+
+<div class="container my-4">
+    {{#if error}}
+        <div class="alert alert-danger" role="alert">
+            {{error}}
+        </div>
+    {{/if}}
+    {{#if success}}
+        <div class="alert alert-success" role="alert">
+            {{success}}
+        </div>
+    {{/if}}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Appointment Request</h5>
+            <form action="/request-appointment" method="POST">
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                    <div class="small">The automatically generated password will be sent to this email</div>
+                </div>
+                <hr>
+                <div class="mb-3">
+                    <label for="petName" class="form-label">Pet Name</label>
+                    <input type="text" class="form-control" id="petName" name="petName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="petType" class="form-label">Pet Type</label>
+                    <select class="form-select" id="petType" name="petType" required>
+                        <option value="dog">Dog</option>
+                        <option value="cat">Cat</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Speciality</label>
+                    <select class="form-select" id="location" name="location" required>
+                        <option value="" selected disabled>Select an option</option>
+                        <option value="General Checkup">General Checkup</option>
+                        <option value="Vaccination">Vaccination</option>
+                        <option value="Dental Care">Dental Care</option>
+                        <option value="Surgery">Surgery</option>
+                        <option value="Emergency Care">Emergency Care</option>
+                        <option value="Dermatology">Dermatology</option>
+                        <option value="Ophthalmology">Ophthalmology</option>
+                        <option value="Nutrition">Nutrition</option>
+                        <option value="Behavioral Consultation">Behavioral Consultation</option>
+                        <option value="Physical Therapy">Physical Therapy</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="appointmentDate" class="form-label">Appointment Date</label>
+                    <input type="date" class="form-control" id="appointmentDate" name="appointmentDate" required>
+                </div>
+                <div class="mb-3">
+                    <label for="appointmentTime" class="form-label">Appointment Time</label>
+                    <select name="appointmentTime" id="time" class="form-control" required>
+                        {{#each timeSlots}}
+                            <option value="{{this}}">{{this}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
 </div>

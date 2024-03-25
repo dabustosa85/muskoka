@@ -25,6 +25,10 @@ router.get('/request-appointment', (req, res, next) => {
     IndexController.DisplayRequestAppointment(req, res, next);
 });
 
+router.post('/request-appointment', (req, res, next) => {
+    IndexController.DisplayRequestAppointment(req, res, next);
+});
+
 /* GET Survey Page */
 router.get('/survey', (req, res, next) => {
     IndexController.DisplaySurvey(req, res, next);
