@@ -51,8 +51,12 @@ This project is a web application designed to manage appointments, users, and su
 
     ```plaintext
     PORT=3000
-    MONGODB_URI=mongodb://localhost:27017/veterinary-hospital
-    SESSION_SECRET=yoursecret
+    DB_USERNAME=muskokaUser
+    DB_PASSWORD=gPaJuBEgVlwZguoE
+    DB_HOST=comp2106.hc9ht8r.mongodb.net
+    DB_NAME=muskoka
+    DB_OPTIONS=retryWrites=true&w=majority&appName=comp2106
+    SESSION_SECRET=secret_muskoka
     ```
 
 5. Start the server:
