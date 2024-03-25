@@ -2,6 +2,9 @@ const crypto = require('crypto');
 
 const User = require('../Models/user');
 
+/**
+ * Retrieves all users and renders the page displaying them.
+ */
 const getAllUsers = async (req, res, next) => {
     try {
         const users = await User.find();
@@ -12,11 +15,14 @@ const getAllUsers = async (req, res, next) => {
     }
 };
 
+/**
+ * Retrieves a user by their ID and renders the user detail page.
+ */
 const getUserById = async (req, res, next) => {
     try {
         const user = await User.findById(req.params.id);
         if (user == null) {
-            return res.status(404).json({message: 'Usuario no encontrado'});
+            return res.status(404).json({message: 'User not found'});
         }
         res.render('backend/user/userDetail', {user: user});
     } catch (err) {
@@ -24,10 +30,16 @@ const getUserById = async (req, res, next) => {
     }
 };
 
+/**
+ * Renders the form for creating a new user.
+ */
 const renderCreateForm = (req, res, next) => {
     res.render('backend/user/createUserForm');
 };
 
+/**
+ * Renders the form for editing an existing user.
+ */
 const renderEditForm = async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
@@ -41,7 +53,9 @@ const renderEditForm = async (req, res) => {
     }
 };
 
-
+/**
+ * Creates a new user based on the provided data.
+ */
 const createUser = async (req, res, next) => {
     const userData = {
         firstName: req.body.firstName,
@@ -63,6 +77,9 @@ const createUser = async (req, res, next) => {
     }
 };
 
+/**
+ * Updates an existing user based on the provided data.
+ */
 const updateUser = async (req, res, next) => {
     const userData = {
         firstName: req.body.firstName,
@@ -84,7 +101,9 @@ const updateUser = async (req, res, next) => {
     }
 };
 
-
+/**
+ * Deletes a user by their ID.
+ */
 const deleteUser = async (req, res, next) => {
     try {
         await User.findByIdAndDelete(req.params.id);
@@ -94,6 +113,9 @@ const deleteUser = async (req, res, next) => {
     }
 };
 
+/**
+ * Registers a new user based on the provided data.
+ */
 const registerUser = async (req, res) => {
     console.log(req.body);
     try {
@@ -149,7 +171,6 @@ const registerUser = async (req, res) => {
         res.status(500).json({message: 'Error registering new user'});
     }
 };
-
 
 module.exports = {
     getAllUsers,

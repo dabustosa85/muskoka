@@ -3,20 +3,29 @@ const crypto = require('crypto');
 const User = require('../Models/user');
 const Appointment = require("../Models/appointment");
 
+/**
+ * Displays the home page.
+ */
 function DisplayHome(req, res, next) {
     res.render('index', {title: 'Home', page: 'home'});
 }
 
+/**
+ * Displays the 'Become a Client' page.
+ */
 function DisplayBecomeAClient(req, res, next) {
     res.render('become-a-client', {title: 'Become a Client', page: 'become-a-client'});
 }
 
+/**
+ * Displays the appointment request form and handles form submission.
+ */
 async function DisplayRequestAppointment(req, res, next) {
     const timeSlots = [];
     for (let hour = 9; hour < 18; hour++) {
         ['00', '30'].forEach(minute => {
             const time = `${hour}:${minute}`;
-            timeSlots.push(time.length === 4 ? `0${time}` : time); // Asegura formato HH:MM
+            timeSlots.push(time.length === 4 ? `0${time}` : time); // Ensure HH:MM format
         });
     }
 
@@ -32,23 +41,23 @@ async function DisplayRequestAppointment(req, res, next) {
         try {
             const {firstName, lastName, email, petName, petType, location, appointmentDate, appointmentTime} = req.body;
 
-            // Verificar si el usuario ya existe
+            // Check if the user already exists
             let user = await User.findOne({email: email});
 
-            // Si el usuario no existe, crear uno nuevo
+            // If the user doesn't exist, create a new one
             if (!user) {
                 user = new User({
                     firstName: firstName,
                     lastName: lastName,
                     email: email,
-                    isAdmin: false // Opcional: Puedes establecer el valor de isAdmin según tus requisitos
+                    isAdmin: false // Optional: Set isAdmin based on your requirements
                 });
                 await user.save();
             }
 
-            // Crear la cita asociada al usuario
+            // Create the appointment associated with the user
             const appointment = new Appointment({
-                title: 'Appointment', // Puedes ajustar este título según sea necesario
+                title: 'Appointment', // Adjust this title as needed
                 user: user._id,
                 petName: petName,
                 petType: petType,
@@ -58,7 +67,7 @@ async function DisplayRequestAppointment(req, res, next) {
             });
             await appointment.save();
 
-            // Redirigir al usuario a una página de éxito o a otra ubicación
+            // Redirect the user to a success page or another location
             return res.render('request-appointment', {
                 title: 'Request Appointment',
                 page: 'request-appointment',
@@ -77,14 +86,23 @@ async function DisplayRequestAppointment(req, res, next) {
     }
 }
 
+/**
+ * Displays the survey page.
+ */
 function DisplaySurvey(req, res, next) {
     res.render('survey', {title: 'Survey', page: 'survey'});
 }
 
+/**
+ * Displays the backend home page.
+ */
 function DisplayBackendHome(req, res, next) {
     res.render('backend/index', {title: 'Home', page: 'home'});
 }
 
+/**
+ * Displays the backend login page and handles login.
+ */
 async function DisplayBackendLogin(req, res) {
     if (req.method === 'GET') {
         res.render('backend/login', {error: req.query.error});
@@ -113,12 +131,10 @@ async function DisplayBackendLogin(req, res) {
 }
 
 module.exports = {
-    DisplayHome: DisplayHome,
-    DisplayBecomeAClient: DisplayBecomeAClient,
-    DisplayRequestAppointment: DisplayRequestAppointment,
-    DisplaySurvey: DisplaySurvey,
-    DisplayBackendHome: DisplayBackendHome,
-    DisplayBackendLogin: DisplayBackendLogin
-}
-
-  
+    DisplayHome,
+    DisplayBecomeAClient,
+    DisplayRequestAppointment,
+    DisplaySurvey,
+    DisplayBackendHome,
+    DisplayBackendLogin
+};

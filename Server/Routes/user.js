@@ -1,27 +1,27 @@
-const express = require('express');
-const router = express.Router();
-const {ensureLoggedIn, ensureAdmin} = require("../Middlewares/auth");
-const UserController = require('../Controllers/user');
+const express = require('express'); // Importing the express framework
+const router = express.Router(); // Creating a router instance to handle user-related routes
+const { ensureLoggedIn, ensureAdmin } = require("../middlewares/auth"); // Importing middleware functions for user authentication
+const UserController = require('../controllers/user'); // Importing the user controller
 
-router.get('/users/create', UserController.renderCreateForm)
-    .use(ensureAdmin, ensureLoggedIn);
+// Route to render the form for creating a new user
+router.get('/users/create', ensureAdmin, ensureLoggedIn, UserController.renderCreateForm);
 
-router.get('/users', UserController.getAllUsers)
-    .use(ensureAdmin, ensureLoggedIn);
+// Route to fetch all users
+router.get('/users', ensureAdmin, ensureLoggedIn, UserController.getAllUsers);
 
-router.get('/users/:id', UserController.getUserById)
-    .use(ensureAdmin, ensureLoggedIn);
+// Route to fetch a user by their ID
+router.get('/users/:id', ensureAdmin, ensureLoggedIn, UserController.getUserById);
 
-router.get('/users/edit/:id', UserController.renderEditForm)
-    .use(ensureAdmin, ensureLoggedIn);
+// Route to render the form for editing a user's information
+router.get('/users/edit/:id', ensureAdmin, ensureLoggedIn, UserController.renderEditForm);
 
-router.post('/users', UserController.createUser)
-    .use(ensureAdmin, ensureLoggedIn);
+// Route to create a new user
+router.post('/users', ensureAdmin, ensureLoggedIn, UserController.createUser);
 
-router.post('/users/:id', UserController.updateUser)
-    .use(ensureAdmin, ensureLoggedIn);
+// Route to update an existing user's information
+router.post('/users/:id', ensureAdmin, ensureLoggedIn, UserController.updateUser);
 
-router.post('/users/delete/:id', UserController.deleteUser)
-    .use(ensureAdmin, ensureLoggedIn);
+// Route to delete a user by their ID
+router.post('/users/delete/:id', ensureAdmin, ensureLoggedIn, UserController.deleteUser);
 
-module.exports = router;
+module.exports = router; // Exporting the router to make it available to other parts of the application
