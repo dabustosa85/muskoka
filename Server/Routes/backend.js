@@ -5,7 +5,6 @@ const { ensureLoggedIn, ensureAdmin } = require('../Middlewares/auth');
 
 const appointmentsRoutes = require('./appointment');
 const usersRoutes = require('./user');
-const UserController = require("../Controllers/Users");
 
 // Route to handle user registration
 router.post('/register', (req, res) => {
