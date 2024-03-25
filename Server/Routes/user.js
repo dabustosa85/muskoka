@@ -1,7 +1,6 @@
 const express = require('express'); // Importing the express framework
 const router = express.Router(); // Creating a router instance to handle user-related routes
 const { ensureLoggedIn, ensureAdmin } = require("../Middlewares/auth"); // Importing middleware functions for user authentication
-const UserController = require('../controllers/user'); // Importing the user controller
 
 // Route to render the form for creating a new user
 router.get('/users/create', ensureAdmin, ensureLoggedIn, UserController.renderCreateForm);
