@@ -1,11 +1,11 @@
 const express = require('express');
 const IndexController = require("../Controllers");
 const router = express.Router();
-const { ensureLoggedIn, ensureAdmin } = require('../middlewares/auth');
+const { ensureLoggedIn, ensureAdmin } = require('../Middlewares/auth');
 
 const appointmentsRoutes = require('./appointment');
 const usersRoutes = require('./user');
-const UserController = require("../Controllers/user");
+const UserController = require("../Controllers/Users");
 
 // Route to handle user registration
 router.post('/register', (req, res) => {
